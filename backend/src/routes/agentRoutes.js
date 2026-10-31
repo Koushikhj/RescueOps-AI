@@ -1,10 +1,17 @@
 
 import express from "express";
-import { getAgents } from "../controllers/agentController.js";
+
+import {
+  getAgents,
+  analyzeIncidentController
+} from "../controllers/agentController.js";
 
 const router = express.Router();
 
-// GET all AI agents
+// GET: Fetch all agents
 router.get("/", getAgents);
+
+// POST: Analyze an emergency incident using Gemini
+router.post("/analyze", analyzeIncidentController);
 
 export default router;
